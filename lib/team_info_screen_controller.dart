@@ -37,7 +37,6 @@ class TeamInfoScreenController extends GetxController {
   void scrollControllerMethod() {
     scrollController.position.isScrollingNotifier.addListener(() {
       if (!scrollController.position.isScrollingNotifier.value) {
-        MyAppToast.showAppToast("No more data");
         return;
       }
     });

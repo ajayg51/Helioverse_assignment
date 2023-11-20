@@ -51,7 +51,6 @@ class EmployeeInfoScreenController extends GetxController {
   void scrollControllerMethod() {
     scrollController.position.isScrollingNotifier.addListener(() {
       if (!scrollController.position.isScrollingNotifier.value) {
-        MyAppToast.showAppToast("No further scrolling please...");
         return;
       }
     });
@@ -72,6 +71,7 @@ class EmployeeInfoScreenController extends GetxController {
       employeeAlreadyInTeamList.assignAll(boxTeamValueList);
     }
     employeeSetToBeAddedInTeam.clear();
+    isShowCheckbox.value = false;
     MyAppToast.showAppToast("Successfully added to team");
   }
 
@@ -97,7 +97,7 @@ class EmployeeInfoScreenController extends GetxController {
               .where((element) => element["domain"] == datum["domain"])
               .isNotEmpty;
       if (isMemberAlreadyInTeam) {
-        MyAppToast.showAppToast("Employee already exists in team");
+        MyAppToast.showAppToast("Same domain employee already exists in team");
         return;
       }
       employeeSetToBeAddedInTeam.add(datum);
