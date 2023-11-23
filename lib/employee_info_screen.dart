@@ -68,6 +68,7 @@ class EmployeeInfoScreen extends StatelessWidget {
           buildFiltersAndResetFiltersBtn(context),
           10.verticalSpace,
           buildSelectedFilterSection(context: context),
+          10.verticalSpace,
           Row(
             children: [
               Expanded(
