@@ -57,7 +57,7 @@ class EmployeeInfoScreenController extends GetxController {
     if (scrollController.position.maxScrollExtent < offset * 1000) {
       final count = offset == 1 ? 15 : 10;
       data.addAll(DummyData.empData.skip(offset * count).take(10));
-      filteredData.assignAll(data);
+      filterData();
       offset++;
     }
   }
