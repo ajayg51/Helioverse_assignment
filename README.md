@@ -1,4 +1,4 @@
-# addEmployeeToTeam
+# Team Management
 ## A web app to assist in inclusion of a domain-specific employee to team and view the same, it remembers which of the employee were included across app launches and restricts inclusion same-domain employee.
 
 ### Hosted Link
