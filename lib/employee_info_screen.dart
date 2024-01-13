@@ -96,7 +96,7 @@ class EmployeeInfoScreen extends StatelessWidget {
                       "No data for current search/selcted filter",
                       style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                             fontSize: 30,
-                            color: Colors.white,
+                            color: Colors.black,
                             fontWeight: FontWeight.w800,
                           ),
                     ),
@@ -266,7 +266,13 @@ class EmployeeInfoScreen extends StatelessWidget {
                         child: Container(
                           padding: const EdgeInsets.all(12),
                           decoration: BoxDecoration(
-                            color: Colors.black87.withOpacity(0.7),
+                            gradient: LinearGradient(
+                              colors: [
+                                Colors.brown.withOpacity(0.4),
+                                Colors.purple.withOpacity(0.6),
+                                Colors.red.withOpacity(0.7),
+                              ],
+                            ),
                             borderRadius: BorderRadius.circular(30),
                           ),
                           child: Text(
@@ -327,7 +333,13 @@ class EmployeeInfoScreen extends StatelessWidget {
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
-                        color: Colors.black87.withOpacity(0.7),
+                        gradient: LinearGradient(
+                          colors: [
+                            Colors.brown.withOpacity(0.4),
+                            Colors.purple.withOpacity(0.6),
+                            Colors.red.withOpacity(0.7),
+                          ],
+                        ),
                       ),
                       child: Row(
                         children: [
@@ -336,7 +348,6 @@ class EmployeeInfoScreen extends StatelessWidget {
                                 filterLabel.substring(1),
                             style: const TextStyle(
                               fontSize: 14,
-                              color: Colors.white,
                             ),
                           ),
                           6.horizontalSpace,
@@ -345,7 +356,6 @@ class EmployeeInfoScreen extends StatelessWidget {
                                 controller.onIndividualFilterReset(filter),
                             child: const Icon(
                               Icons.close,
-                              color: Colors.white,
                             ),
                           ),
                         ],
@@ -388,18 +398,16 @@ class EmployeeInfoScreen extends StatelessWidget {
             controller.onDropDownMenuItemTap(filterType: filterType),
         textStyle: Theme.of(context).textTheme.bodyLarge?.copyWith(
               fontSize: 14,
-              color: Colors.white,
             ),
         inputDecorationTheme: InputDecorationTheme(
-          suffixIconColor: Colors.white,
           enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(
-              color: Colors.grey,
+              color: Colors.black,
             ),
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: const BorderSide(
-              color: Colors.grey,
+              color: Colors.black,
             ),
             borderRadius: BorderRadius.circular(15),
           ),
@@ -412,7 +420,6 @@ class EmployeeInfoScreen extends StatelessWidget {
                   : "Select gender",
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 fontSize: 14,
-                color: Colors.white,
               ),
         ),
         dropdownMenuEntries: list.map<DropdownMenuEntry>(

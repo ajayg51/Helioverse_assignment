@@ -34,7 +34,6 @@ class MyApp extends StatelessWidget {
           textTheme: const TextTheme(
               bodyLarge: TextStyle(
             fontSize: 10,
-            color: Colors.white,
           ))),
       getPages: [
         GetPage(name: "/", page: () => EmployeeInfoScreen()),

@@ -124,6 +124,7 @@ class _EmployeeCardState extends State<EmployeeCard> {
                                   .bodyLarge
                                   ?.copyWith(
                                     fontSize: 14,
+                                    color: Colors.white,
                                   ),
                             ),
                             10.verticalSpace,
@@ -136,6 +137,7 @@ class _EmployeeCardState extends State<EmployeeCard> {
                                   .bodyLarge
                                   ?.copyWith(
                                     fontSize: 14,
+                                    color: Colors.white,
                                   ),
                             ),
                             10.verticalSpace,
@@ -146,6 +148,7 @@ class _EmployeeCardState extends State<EmployeeCard> {
                                   .bodyLarge
                                   ?.copyWith(
                                     fontSize: 14,
+                                    color: Colors.white,
                                   ),
                             ),
                           ],
@@ -166,6 +169,7 @@ class _EmployeeCardState extends State<EmployeeCard> {
                                   .bodyLarge
                                   ?.copyWith(
                                     fontSize: 14,
+                                    color: Colors.white,
                                   ),
                             ),
                             10.verticalSpace,
@@ -180,6 +184,7 @@ class _EmployeeCardState extends State<EmployeeCard> {
                                     ?.copyWith(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w600,
+                                      color: Colors.white,
                                     ),
                               ),
                             ] else ...[
@@ -193,6 +198,7 @@ class _EmployeeCardState extends State<EmployeeCard> {
                                     ?.copyWith(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w600,
+                                      color: Colors.white,
                                     ),
                               ),
                             ],
