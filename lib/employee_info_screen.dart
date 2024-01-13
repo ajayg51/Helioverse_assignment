@@ -1,5 +1,6 @@
 import 'package:emp_data/employee_card.dart';
 import 'package:emp_data/employee_info_screen_controller.dart';
+import 'package:emp_data/utils/common_background.dart';
 import 'package:emp_data/utils/emp_filter_extension.dart';
 import 'package:emp_data/utils/num_extension.dart';
 import 'package:flutter/material.dart';
@@ -18,11 +19,12 @@ class EmployeeInfoScreen extends StatelessWidget {
           "Employee Details",
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 fontSize: 24,
+                color: Colors.black,
                 fontWeight: FontWeight.w800,
-                color: Colors.white,
               ),
         ),
-        backgroundColor: const Color.fromARGB(255, 84, 86, 84),
+        flexibleSpace: const CommonBackground(),
+        // backgroundColor: const Color.fromARGB(255, 84, 86, 84),
         actions: [
           Row(
             children: [
@@ -36,7 +38,13 @@ class EmployeeInfoScreen extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                    color: Colors.black87.withOpacity(0.7),
+                    gradient: LinearGradient(
+                      colors: [
+                        Colors.brown.withOpacity(0.4),
+                        Colors.purple.withOpacity(0.6),
+                        Colors.red.withOpacity(0.7),
+                      ],
+                    ),
                     borderRadius: BorderRadius.circular(30),
                   ),
                   child: Text(
@@ -53,74 +61,76 @@ class EmployeeInfoScreen extends StatelessWidget {
           ),
         ],
       ),
-      backgroundColor: const Color.fromARGB(255, 114, 121, 115),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          10.verticalSpace,
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              buildSearchBar(context: context),
-            ],
-          ),
-          10.verticalSpace,
-          buildFiltersAndResetFiltersBtn(context),
-          10.verticalSpace,
-          buildSelectedFilterSection(context: context),
-          10.verticalSpace,
-          Row(
-            children: [
-              Expanded(
-                  child: Container(
-                height: 3,
-                color: Colors.black,
-              )),
-            ],
-          ),
-          Expanded(
-            child: Obx(() {
-              final data = controller.filteredData().toList();
-              if (data.isEmpty) {
-                return Center(
-                  child: Text(
-                    "No data for current search/selcted filter",
-                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                          fontSize: 30,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w800,
-                        ),
+      // backgroundColor: const Color.fromARGB(255, 114, 121, 115),
+      body: CommonBackground(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            10.verticalSpace,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                buildSearchBar(context: context),
+              ],
+            ),
+            10.verticalSpace,
+            buildFiltersAndResetFiltersBtn(context),
+            10.verticalSpace,
+            buildSelectedFilterSection(context: context),
+            10.verticalSpace,
+            Row(
+              children: [
+                Expanded(
+                    child: Container(
+                  height: 3,
+                  color: Colors.black,
+                )),
+              ],
+            ),
+            Expanded(
+              child: Obx(() {
+                final data = controller.filteredData().toList();
+                if (data.isEmpty) {
+                  return Center(
+                    child: Text(
+                      "No data for current search/selcted filter",
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                            fontSize: 30,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w800,
+                          ),
+                    ),
+                  );
+                }
+                return GridView.extent(
+                  maxCrossAxisExtent: 300,
+                  controller: controller.scrollController,
+                  children: List.generate(
+                    data.length,
+                    (index) => Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Obx(() {
+                        return EmployeeCard(
+                          data: data[index],
+                          isShowCheckbox: controller.isShowCheckbox.value,
+                          employeeAlreadyInTeamList:
+                              controller.employeeAlreadyInTeamList,
+                          addedToTeamDataSet:
+                              controller.employeeSetToBeAddedInTeam,
+                          onEmployeeSelect: (value) =>
+                              controller.onEmployeeSelect(
+                            value: value,
+                            datum: data[index],
+                          ),
+                        );
+                      }),
+                    ),
                   ),
                 );
-              }
-              return GridView.extent(
-                maxCrossAxisExtent: 300,
-                controller: controller.scrollController,
-                children: List.generate(
-                  data.length,
-                  (index) => Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Obx(() {
-                      return EmployeeCard(
-                        data: data[index],
-                        isShowCheckbox: controller.isShowCheckbox.value,
-                        employeeAlreadyInTeamList:
-                            controller.employeeAlreadyInTeamList,
-                        addedToTeamDataSet:
-                            controller.employeeSetToBeAddedInTeam,
-                        onEmployeeSelect: (value) =>
-                            controller.onEmployeeSelect(
-                          value: value,
-                          datum: data[index],
-                        ),
-                      );
-                    }),
-                  ),
-                ),
-              );
-            }),
-          ),
-        ],
+              }),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -195,7 +205,13 @@ class EmployeeInfoScreen extends StatelessWidget {
                         child: Container(
                           padding: const EdgeInsets.all(12),
                           decoration: BoxDecoration(
-                            color: Colors.black87.withOpacity(0.7),
+                            gradient: LinearGradient(
+                              colors: [
+                                Colors.brown.withOpacity(0.4),
+                                Colors.purple.withOpacity(0.6),
+                                Colors.red.withOpacity(0.7),
+                              ],
+                            ),
                             borderRadius: BorderRadius.circular(30),
                           ),
                           child: Text(
@@ -218,7 +234,13 @@ class EmployeeInfoScreen extends StatelessWidget {
                       child: Container(
                         padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
-                          color: Colors.black87.withOpacity(0.7),
+                          gradient: LinearGradient(
+                            colors: [
+                              Colors.brown.withOpacity(0.4),
+                              Colors.purple.withOpacity(0.6),
+                              Colors.red.withOpacity(0.7),
+                            ],
+                          ),
                           borderRadius: BorderRadius.circular(30),
                         ),
                         child: Text(
