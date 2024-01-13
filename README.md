@@ -11,11 +11,11 @@ Functionalites :
 ```
 
 ### Screenshots
-
-![1](screenshots/1.png)
-![2](screenshots/2.png)
-![3](screenshots/3.png)
-![4](screenshots/4.png)
+![0](https://github.com/ajayg51/TeamManagement/assets/60037249/cc7a08a0-f0a3-4395-901d-72ff3ce2c1fa)
+![1](https://github.com/ajayg51/TeamManagement/assets/60037249/8b29779a-ac29-4656-b0a8-d757acf13235)
+![2](https://github.com/ajayg51/TeamManagement/assets/60037249/122db0bb-9540-4efe-a5e3-343d18441105)
+![3](https://github.com/ajayg51/TeamManagement/assets/60037249/712de609-0c93-446c-ba1a-b90f1315f1c5)
+![4](https://github.com/ajayg51/TeamManagement/assets/60037249/3dbb3982-1bd5-42ad-a2f1-97ade5416931)
 
 
 
