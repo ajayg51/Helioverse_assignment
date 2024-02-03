@@ -1,8 +1,9 @@
 import 'package:emp_data/data/dummy_data.dart';
-import 'package:emp_data/debouncer.dart';
+import 'package:emp_data/utils/debouncer.dart';
 import 'package:emp_data/models/team.dart';
 import 'package:emp_data/utils/app_toast.dart';
 import 'package:emp_data/utils/emp_filter_extension.dart';
+import 'package:emp_data/utils/throttler.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
@@ -49,17 +50,20 @@ class EmployeeInfoScreenController extends GetxController {
   }
 
   void scrollControllerMethod() {
-    scrollController.position.isScrollingNotifier.addListener(() {
-      if (!scrollController.position.isScrollingNotifier.value) {
-        return;
+    Throttler().run(() {
+      scrollController.position.isScrollingNotifier.addListener(() {
+        if (!scrollController.position.isScrollingNotifier.value) {
+          MyAppToast.showAppToast("No further scrolling please");
+          return;
+        }
+      });
+      if (scrollController.position.maxScrollExtent < offset * 1000) {
+        final count = offset == 1 ? 15 : 10;
+        data.addAll(DummyData.empData.skip(offset * count).take(10));
+        filterData();
+        offset++;
       }
     });
-    if (scrollController.position.maxScrollExtent < offset * 1000) {
-      final count = offset == 1 ? 15 : 10;
-      data.addAll(DummyData.empData.skip(offset * count).take(10));
-      filterData();
-      offset++;
-    }
   }
 
   void onAddToTeamBtnTap() async {
