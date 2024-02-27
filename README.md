@@ -13,10 +13,13 @@
 
 
 ```
-Functionalites :
-  * Search team members
-  * Gender, Domain, Availability specific filters
-  * pagination enabled upon scrolling
+
+    Functionalites :
+      * Search team members
+      * Gender, Domain, Availability specific filters
+      * Multi filter selection at same time
+      * pagination enabled upon scrolling
+
 ```
 
 ### Screenshots
@@ -27,4 +30,13 @@ Functionalites :
 ![4](https://github.com/ajayg51/TeamManagement/assets/60037249/3dbb3982-1bd5-42ad-a2f1-97ade5416931)
 
 
+### Libraries/Methodologies
+
+```
+
+    $ Used Hive for local storage
+    $ Used Throtller for efficient pagination
+
+
+```
 
